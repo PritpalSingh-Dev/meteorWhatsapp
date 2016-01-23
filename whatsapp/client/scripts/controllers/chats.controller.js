@@ -14,6 +14,6 @@ angular
     });
 
   function remove (chat) {
-    this.data.splice(this.data.indexOf(chat), 1);
+    Chats.remove(chat._id);
   }
 }
