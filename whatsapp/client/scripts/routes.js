@@ -19,6 +19,15 @@ angular
         }
       }
     });
+    .state('tab.chat', {
+      url: '/chats/:chatId',
+      views: {
+        'tab-chats': {
+          templateUrl: 'client/templates/chat.html',
+          controller: 'ChatCtrl as chat'
+        }
+      }
+    });
 
     $urlRouterProvider.otherwise('tab/chats');
   }
