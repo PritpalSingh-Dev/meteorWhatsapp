@@ -8,8 +8,11 @@ angular
     let chatId = $stateParams.chatId;
 
     this.helpers({
-      data() {
-        return Chats.findOne(chatId);
+      messages() {
+        return Messages.find(chatId: chatId);
+        data() {
+          return Chats.findOne(chatId);
+        }
       }
     })
   }
