@@ -19,8 +19,8 @@ function input ($timeout) {
       if(!scope.onFocus) return;
 
       $timeout(function () {
-        scope.onFocus;
-      })
+        scope.onFocus();
+      });
     });
 
     element.bind('blur', function (e) {
@@ -34,11 +34,15 @@ function input ($timeout) {
     element.bind('keydown', function (e) {
       if (e.which != 13) return;
 
+      if (scope.returnClose) {
+        element[0].blur();
+      }
+
       if (scope.onReturn) {
         $timeout(function () {
           scope.onReturn();
         });
-    }
-  });
- }
+      }
+    });
+  }
 }

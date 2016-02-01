@@ -46,7 +46,7 @@ function ChatCtrl ($scope, $reactive, $stateParams, $ionicScrollDelegate, $timeo
 
   function inputDown(){ 
     if (isIOS) {
-      this.keyboardHeigh = 0;
+      this.keyboardHeight = 0;
     }
 
     $ionicScrollDelegate.$getByHandle('chatScroll').resize();
