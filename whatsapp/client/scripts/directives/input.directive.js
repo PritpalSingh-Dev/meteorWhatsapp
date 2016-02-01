@@ -14,5 +14,16 @@ angular
       link:link
     };
 
-    
+function link(scope, element, attrs) {
+  element.bind('focus', function (e) {
+    if(!scope.onFocus) return;
+
+    $timeout(function () {
+      scope.onFocus;
+    })
+  })
+
+
+}
+
   }
