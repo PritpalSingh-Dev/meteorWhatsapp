@@ -26,7 +26,12 @@ function config($stateProvider, $urlRouterProvider) {
               controller: 'ChatCtrl as chat'
             }
           }
-    });
+    })
+        .state('login', {
+          url: '/login',
+          templateUrl: 'client/templates/login.html',
+          controller: 'LoginCtrl as logger'
+        })
 
     $urlRouterProvider.otherwise('tab/chats');
   }
