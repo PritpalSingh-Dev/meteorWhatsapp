@@ -32,6 +32,11 @@ function config($stateProvider, $urlRouterProvider) {
           templateUrl: 'client/templates/login.html',
           controller: 'LoginCtrl as logger'
         })
+        .state('confirmation', {
+          url: '/confirmation/:phone',
+          templateUrl: 'client/templates/confirmation.html',
+          controller: 'ConfirmationCtrl as confirmation'
+        })
 
     $urlRouterProvider.otherwise('tab/chats');
   }
