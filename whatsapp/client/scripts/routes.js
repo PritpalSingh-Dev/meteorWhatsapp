@@ -37,6 +37,11 @@ function config($stateProvider, $urlRouterProvider) {
           templateUrl: 'client/templates/confirmation.html',
           controller: 'ConfirmationCtrl as confirmation'
         })
+        .state('profile', {
+          url: '/profile',
+          templateUrl: 'client/templates/profile.html',
+          controller: 'ProfileCtrl as profile'
+        });
 
     $urlRouterProvider.otherwise('tab/chats');
   }
