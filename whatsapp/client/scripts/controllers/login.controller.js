@@ -24,9 +24,19 @@ function login(){
     if (!res) return;
 
     $ionicLoading.show({
-      template: 'Sening verification code...'
+      template: 'Sending verification code...'
     });
-  })
+
+    Accounts.requestPhoneVerification(this.phone, (err) => {
+      $ionicLoading.hide();
+
+      if (err) {
+        return handleError(err);
+      }
+
+      $state.go('confirmation', {phone: this.phone});
+    });
+  });
 }
 
 
