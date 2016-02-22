@@ -19,6 +19,14 @@ function login(){
     cancelText: 'edit',
     cancelType: 'button-dark button-clear'
   });
+
+  confirm.Popup.then((res) => {
+    if (!res) return;
+
+    $ionicLoading.show({
+      template: 'Sening verification code...'
+    });
+  })
 }
 
 
