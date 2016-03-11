@@ -9,4 +9,14 @@ angular
     this.confirm = confirm;
 
     //////////////////
+
+    function confirm() {
+      if (_.isEmpty(this.code)) return;
+
+      Accounts.verifyPhone(this.phone, this.code, function (err) {
+        if (err) return handleError(err);
+        state.go('profile');
+      })
+    }
+    
   }
