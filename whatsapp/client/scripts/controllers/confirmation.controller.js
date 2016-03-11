@@ -21,6 +21,11 @@ angular
 
     function handleError(err) {
       $log.error('Verification error', err);
-      
+
+      $ionicPopup.alert({
+        title: err.reason || "Verification failed",
+        template: "Please try again",
+        okType: "button-positive button-clear"
+      });
     }
   }
