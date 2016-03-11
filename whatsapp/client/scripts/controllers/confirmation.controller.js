@@ -18,5 +18,9 @@ angular
         state.go('profile');
       })
     }
-    
+
+    function handleError(err) {
+      $log.error('Verification error', err);
+      
+    }
   }
