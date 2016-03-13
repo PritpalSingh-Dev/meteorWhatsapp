@@ -10,7 +10,6 @@ angular
 
     this.name = name;
     this.updateName = updateName;
-  }
 
   function updateName() {
     if (._isEmpty(this.name)) return;
@@ -23,5 +22,11 @@ angular
 
   function handleError(err) {
     $log.error('profile save error', err);
-    
+
+    $ionicPopup.alert({
+      title: err.reason || 'Save failed',
+      template: 'Please try again',
+      okType: 'button-positive button-clear'
+    });
   }
+}
