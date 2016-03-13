@@ -12,7 +12,7 @@ angular
     this.updateName = updateName;
 
   function updateName() {
-    if (._isEmpty(this.name)) return;
+    if (_.isEmpty(this.name)) return;
 
     Meteor.call('updateName', this.name, (err) => {
       if(err) return handleError(err);

@@ -55,7 +55,7 @@ function config($stateProvider, $urlRouterProvider) {
   .state('tab.settings', {
     url: '/settings',
     views: {
-      tab-settings: {
+      'tab-settings': {
         templateUrl: 'client/templates/settings.html',
         controller: 'SettingsCtrl as settings',
       }
