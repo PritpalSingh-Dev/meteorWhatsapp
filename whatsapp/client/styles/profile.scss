@@ -1,6 +1,7 @@
 .profile {
-  
-  padding-top: 20px;.profile-picture {
+  padding-top: 20px;
+
+   .profile-picture {
     position: absolute;
     top: 0;
     left: 20px;
@@ -25,3 +26,15 @@
       font-size: 12px;
     }
   }
+
+    .instructions {
+      min-height: 60px;
+      padding: 10px 20px 20px 90px;
+      font-size: 14px;
+      color: gray;
+    }
+   
+    .profile-name {
+      margin-top: 20px;
+    }
+  } 
