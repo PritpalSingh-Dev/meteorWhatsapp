@@ -29,5 +29,26 @@ Meteor.methods({
     }
 
     return Meteor.users.update(this.userId, { $set: { 'profile.name': name} });
+  },
+  newChat(otherId) {
+    if (!this.userId) {
+      throw new Meteor.Error('not-logged-in', 'Must be logged in to create a chat');
+    }
+    
+    check(otherId, String);
+
+    let otherUser = Meteor.users.findOne(otherId);
+    if(!otherUser) {
+      throw new Meteor.Error('user-not-exists', 'Chat\'s user not exists');
+    }
+
+    let chat = {
+      userIds: {this.userId, otherId},
+      createdAt: new Date()
+    };
+
+    let chatId = Chars.insert(chat);
+
+    return chatId;
   }
 });
