@@ -19,6 +19,6 @@ function showNewChatModal() {
 }
 
   function remove (chat) {
-    Chats.remove(chat._id);
+    Meteor.call('removeChat', chat._id);
   }
 }
