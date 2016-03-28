@@ -50,5 +50,21 @@ Meteor.methods({
     let chatId = Chars.insert(chat);
 
     return chatId;
+  },
+  removeChat(chatId) {
+    if (!this.userId) {
+      throw new Meteor.Error('not-logged-in', 'Must be logged to create a chat.');
+    }
+
+    check(chatId, String);
+
+    let chat = Chats.findOne(chatId);
+    if(!chat || !_.include(chat.userIds, this.userId)) {
+      throw new Meteor.Error('chat-not-exists', 'Chat not exists');
+    }
+
+    Messages.remove({ chatId: chatId });
+
+    return Chats.remove({ _id: chatId })
   }
 });
