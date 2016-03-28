@@ -42,11 +42,11 @@ Meteor.methods({
       throw new Meteor.Error('user-not-exists', 'Chat\'s user not exists');
     }
 
-    let chat = {
-      userIds: {this.userId, otherId},
-      createdAt: new Date()
-    };
-
+  let chat = {
+        userIds: [this.userId, otherId],
+        createdAt: new Date()
+      };
+      
     let chatId = Chars.insert(chat);
 
     return chatId;
