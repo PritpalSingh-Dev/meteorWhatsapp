@@ -27,6 +27,18 @@ $scope.$watchCollection('chat.messages', (oldVal, newVal) => {
 
 ////////////
 
+  function sendPicture() {
+    MeteorCameraUI.getPicture({}, (err, data) =>{
+      if (err) return this.handleError(err);
+
+      this.callMethod('newMessage', {
+        picture: data,
+        type: 'picture',
+        chatId: this.chatId
+      });
+    });
+  }
+
   function sendMessage() {
   if (_.isEmpty(this.message)) return;
 
