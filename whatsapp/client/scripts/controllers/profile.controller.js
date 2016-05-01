@@ -11,6 +11,21 @@ angular
     this.name = name;
     this.updateName = updateName;
 
+  function updatePicture() {
+    MeteorCameraUI.getPicture({ width: 60, height: 60 }, (err, data) => {
+      if (err) return this.handleError(err);
+
+      this.$ionicLoading.show({
+        template: 'Updating picture...'
+      });
+
+      this.callMethod('updatePicture', data, (err) => {
+        this.$ionicLoading.hide();
+        this.handleError(err);
+      });
+    });
+  }
+
   function updateName() {
     if (_.isEmpty(this.name)) return;
 
