@@ -72,5 +72,17 @@ $scope.$watchCollection('chat.messages', (oldVal, newVal) => {
   function closeKeyboard() {
     // cordova.plugins.Keyboard.close();
   }
+
+  handleError(err) {
+      if (err.error == 'cancel') return;
+      this.$log.error('Profile save error ', err);
+   
+      this.$ionicPopup.alert({
+        title: err.reason || 'Save failed',
+        template: 'Please try again',
+        okType: 'button-positive button-clear'
+      });
+    }
 }
 
+ChatCtrl.$inject = ['$scope', '$stateParams', '$timeout', '$ionicScrollDelegate', '$ionicPopup', '$log'];
